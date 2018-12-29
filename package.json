@@ -1,0 +1,49 @@
+{
+  "name": "signet",
+  "version": "0.0.1",
+  "description": "Decentralized PKI experiment.",
+  "main": "index.js",
+  "author": "Chris McCormick <chris@mccormick.cx>",
+  "homepage": "https://github.com/chr15m/signet",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/chr15m/signet.git",
+    "web": "https://github.com/chr15m/signet"
+  },
+  "bugs": {
+    "url": "https://github.com/chr15m/signet/issues/"
+  },
+  "dependencies": {
+    "bencode": "^2.0.0",
+    "bittorrent-dht": "^9.0.0",
+    "bs58check": "^2.1.2",
+    "lumo-cljs": "^1.8.0",
+    "tweetnacl": "^1.0.0"
+  },
+  "devDependencies": {
+    "babel-minify": "^0.5.0",
+    "browserify": "^16.2.3",
+    "disc": "^1.3.3",
+    "tape": "^4.9.1"
+  },
+  "scripts": {
+    "build": "npm run compile && npm run minify",
+    "minify": "cat bugout.js | minify > bugout.min.js",
+    "compile": "browserify -s Bugout index.js > bugout.js",
+    "disc": "browserify -s Bugout --full-paths index.js | discify > disc.html",
+    "size": "npm run build && cat bugout.min.js | gzip | wc -c",
+    "test": "node test.js"
+  },
+  "keywords": [
+    "crypto",
+    "cryptography",
+    "PKI",
+    "NaCl",
+    "signing",
+    "bittorrent",
+    "networking",
+    "decentralization",
+    "hash",
+    "Uint8Array"
+  ]
+}
